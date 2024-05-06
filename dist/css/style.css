@@ -30,7 +30,16 @@ li {
   margin: 0;
 }
 
-.ticker {
+.items-wrap {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   overflow: hidden;
   padding: 12px 0px;
   border-top: 1px solid #f00;
@@ -38,83 +47,120 @@ li {
   background: rgba(255, 0, 0, 0.4);
 }
 
-.ticker__wrapper {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  list-style-type: none;
-  padding-left: 0;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-  -webkit-transform: translate(100%, 0);
-      -ms-transform: translate(100%, 0);
-          transform: translate(100%, 0);
-  -webkit-animation: ticker 30s linear infinite;
-          animation: ticker 30s linear infinite;
+.items-wrap:before,
+.items-wrap:after {
+  content: "";
+  height: 100%;
+  top: 0;
+  width: 10%;
+  position: absolute;
+  z-index: 1;
+  pointer-events: none;
 }
 
-.ticker__item {
+.items-wrap:before {
+  left: 0;
+}
+
+.items-wrap:after {
+  right: 0;
+}
+
+.items {
   -ms-flex-negative: 0;
       flex-shrink: 0;
-  white-space: nowrap;
-  color: #fff;
-  font-family: Mulish;
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  gap: 20px;
+  counter-reset: item;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  min-width: 100%;
+}
+
+.item {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+  border-radius: 6px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  gap: 42px;
+  font-size: 25px;
+  font-weight: bold;
+  color: #fff;
+  -webkit-transition: all 0.1s ease-in-out;
+  -o-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
 }
-.ticker__item::after {
+.item::after {
   content: "";
   display: block;
   width: 30px;
   height: 30px;
   background: url("../img/star.svg") no-repeat center center;
-  margin-right: 42px;
-}
-.ticker__item:last-child::after {
-  display: none;
+  margin: 0px 42px;
 }
 
-@-webkit-keyframes ticker {
-  0% {
-    -webkit-transform: translate(100%, 0);
-            transform: translate(100%, 0);
+.item:before {
+  content: "";
+}
+
+.marquee {
+  -webkit-animation: scroll 20s linear infinite;
+          animation: scroll 20s linear infinite;
+}
+
+.reverce {
+  animation-direction: reverse;
+}
+
+.perfscan {
+  margin: 20px 0;
+  text-align: center;
+  bottom: 0;
+  background: #fff;
+  padding: 5px;
+}
+
+.perfscan hr {
+  border: solid #999;
+  border-width: 1px 0 0 0;
+  max-width: 50%;
+  margin: 0 auto 20px;
+}
+
+.perfscan a {
+  color: #000;
+  font-weight: bold;
+}
+
+@-webkit-keyframes scroll {
+  from {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
   }
-  99% {
-    opacity: 1;
-    -webkit-transform: translate(-100%, 0);
-            transform: translate(-100%, 0);
-  }
-  100% {
-    opacity: 0;
-    -webkit-transform: translate(-100%, 0);
-            transform: translate(-100%, 0);
+  to {
+    -webkit-transform: translateX(calc(-100% - 20px));
+            transform: translateX(calc(-100% - 20px));
   }
 }
 
-@keyframes ticker {
-  0% {
-    -webkit-transform: translate(100%, 0);
-            transform: translate(100%, 0);
+@keyframes scroll {
+  from {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
   }
-  99% {
-    opacity: 1;
-    -webkit-transform: translate(-100%, 0);
-            transform: translate(-100%, 0);
-  }
-  100% {
-    opacity: 0;
-    -webkit-transform: translate(-100%, 0);
-            transform: translate(-100%, 0);
+  to {
+    -webkit-transform: translateX(calc(-100% - 20px));
+            transform: translateX(calc(-100% - 20px));
   }
 }
 .base-divider {
@@ -126,7 +172,7 @@ li {
 .base-section {
   padding: 90px 0px;
   position: relative;
-  z-index: 88;
+  z-index: 99;
 }
 .base-section__title {
   color: #fff;
@@ -139,7 +185,7 @@ li {
 }
 
 .base-round-bg {
-  width: 1179px;
+  width: 100%;
   height: 1179px;
   -ms-flex-negative: 0;
       flex-shrink: 0;
@@ -159,8 +205,12 @@ li {
   position: absolute;
   z-index: 77;
   width: 100%;
-  height: 400px;
-  bottom: 620px;
+}
+.base-red-bg img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 .base-button {
@@ -357,7 +407,7 @@ li {
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 999;
+  z-index: 9999;
 }
 .header-wrap {
   display: -webkit-box;
@@ -404,6 +454,7 @@ li {
   border-radius: 100%;
   background-color: #142bfd;
   color: #fff;
+  text-decoration: none;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -604,7 +655,7 @@ li {
   line-height: normal;
 }
 .usefull-image {
-  width: 700px;
+  max-width: 700px;
   margin: 0px auto;
   position: relative;
 }
@@ -777,9 +828,6 @@ li {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   gap: 32px;
 }
 .winners-card__items > li span {
@@ -833,6 +881,7 @@ li {
 
 .jury {
   position: relative;
+  z-index: 999;
 }
 
 .jury-card {
@@ -843,16 +892,19 @@ li {
   border: 2px solid rgba(181, 193, 216, 0.4);
   background: -o-linear-gradient(143deg, #142bfd 0%, rgba(12, 26, 151, 0) 49.97%);
   background: linear-gradient(307deg, #142bfd 0%, rgba(12, 26, 151, 0) 49.97%);
+  height: 100%;
 }
 .jury-card__image {
   height: 100%;
   width: 45%;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
 }
 .jury-card__image img {
   width: 100%;
   height: 100%;
-  -o-object-fit: contain;
-     object-fit: contain;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .jury-card__info {
   width: 55%;
@@ -1057,18 +1109,22 @@ li {
   margin-top: auto;
 }
 
+.offer-btn_sm {
+  display: none;
+}
+
 .footer {
   position: relative;
   margin-top: 160px;
-  padding: 42px;
+  padding: 42px 0px;
   background: -o-radial-gradient(100% 0%, 100% 100%, #142af8 0%, #0c1992 100%);
   background: radial-gradient(100% 100% at 100% 0%, #142af8 0%, #0c1992 100%);
 }
 .footer-bg {
   border-radius: 1179px;
   background: rgba(20, 43, 253, 0.7);
-  width: 1179px;
-  height: 1179px;
+  width: 100%;
+  height: auto;
   -webkit-transform: rotate(-90deg);
       -ms-transform: rotate(-90deg);
           transform: rotate(-90deg);
@@ -1150,4 +1206,491 @@ li {
 }
 .footer-info {
   margin-top: 64px;
+}
+
+.rules-card_big-image {
+  height: 65%;
+}
+
+@media screen and (max-width: 190000px) {
+  .jury-card__image {
+    width: 50% !important;
+  }
+}
+@media screen and (max-width: 1919px) {
+  .offer {
+    overflow: hidden;
+  }
+
+  .offer-title {
+    font-size: 120px;
+    line-height: 95px;
+  }
+
+  .offer-subtitle {
+    margin-bottom: 120px;
+  }
+
+  .usefull-image {
+    max-width: 580px;
+  }
+
+  .winners-card__items-children li {
+    width: 100%;
+  }
+
+  .winners-card__contacts {
+    padding: 42px 82px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    gap: 24px;
+  }
+  .winners-card__contacts span {
+    width: 100%;
+  }
+
+  .jury-card {
+    min-height: 452px;
+  }
+
+  .jury-card__image {
+    height: auto;
+    width: auto;
+  }
+
+  .application-info p {
+    font-size: 18px;
+  }
+
+  .application-info h3 {
+    font-size: 52px;
+  }
+}
+@media screen and (max-width: 1365px) {
+  .offer-button {
+    display: none;
+  }
+
+  .usefull {
+    padding-top: 50px;
+    padding-bottom: 60px;
+  }
+
+  .offer {
+    padding-bottom: 50px;
+    padding-top: 80px;
+  }
+
+  .offer-subtitle {
+    margin-bottom: 60px;
+  }
+
+  .base-tag {
+    font-size: 28px;
+  }
+
+  .rules-card_big {
+    min-height: 813px;
+  }
+
+  .base-section__title {
+    font-size: 68px;
+  }
+
+  .base-section {
+    padding: 50px 0px;
+  }
+
+  .base-section__title {
+    margin-bottom: 60px;
+  }
+
+  .winners-card__contacts {
+    padding: 0;
+    background: transparent;
+    border: none;
+  }
+  .winners-card__contacts .base-tag {
+    font-size: 24px;
+  }
+
+  .winners-card__contacts span {
+    font-size: 24px;
+  }
+
+  .jury-card {
+    min-height: 193px;
+  }
+
+  .jury-card__image {
+    width: 250px;
+  }
+
+  .jury-card__info h4 {
+    font-size: 18px;
+  }
+
+  .jury-card__info p {
+    font-size: 18px;
+  }
+
+  .application .row .col-md-6:last-child {
+    -webkit-box-ordinal-group: 0;
+        -ms-flex-order: -1;
+            order: -1;
+    margin-bottom: 32px;
+  }
+
+  .application-info p {
+    margin-bottom: 60px;
+  }
+
+  .footer {
+    margin-top: 100px;
+  }
+  .footer .base-logotype {
+    margin-top: 40px;
+  }
+
+  .footer-info {
+    margin-top: 32px;
+  }
+
+  .faq .accordion-header button {
+    font-size: 24px;
+  }
+
+  .faq .accordion-body {
+    font-size: 18px;
+  }
+
+  .faq .accordion-body {
+    margin-top: 24px;
+  }
+}
+@media screen and (max-width: 719px) {
+  .base-container {
+    padding: 0px 12px;
+  }
+
+  .header-wrap {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+
+  .header-wrap .base-button.base-button__outlined {
+    display: none;
+  }
+
+  .base-tag {
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  .offer-title {
+    font-size: 52px;
+    line-height: 45px;
+    margin-bottom: 12px;
+    margin-top: 24px;
+  }
+
+  .offer-info__tags {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .offer-info__actions {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: 32px;
+  }
+
+  .offer-btn_sm {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-bottom: 8px;
+  }
+
+  .offer-subtitle {
+    font-size: 14px;
+    margin-bottom: 24px;
+  }
+
+  .offer {
+    padding-top: 60px;
+    padding-bottom: 0px;
+  }
+
+  .usefull {
+    padding-top: 12px;
+  }
+
+  .usefull-card {
+    padding: 24px;
+  }
+
+  .usefull-card h3 {
+    font-size: 18px;
+  }
+
+  .usefull-card p {
+    font-size: 14px;
+  }
+
+  .usefull-card {
+    gap: 12px;
+  }
+
+  .usefull-wrap {
+    margin-top: 32px;
+  }
+
+  .usefull-info h3 {
+    font-size: 32px;
+  }
+
+  .usefull-info ul li {
+    font-size: 14px;
+  }
+
+  .usefull-info p {
+    font-size: 14px;
+    margin: 32px 0px;
+  }
+
+  .base-section__title {
+    font-size: 32px;
+    margin-bottom: 32px;
+  }
+
+  .rules-card {
+    padding: 24px;
+    min-height: auto;
+  }
+
+  .rules-card__tags {
+    gap: 8px;
+  }
+  .rules-card__tags .base-tag {
+    font-size: 13px;
+  }
+
+  .rules-card h3 {
+    font-size: 18px;
+  }
+
+  .rules-card p,
+.rules-card a.rules-card__link {
+    font-size: 14px;
+  }
+
+  .rules-card:first-child {
+    margin-bottom: 21px;
+  }
+
+  .rules .col-xl-6:first-child {
+    margin-bottom: 21px;
+  }
+
+  .rules .col-xl-6:last-child {
+    margin-top: 0;
+  }
+
+  .rules-card_big {
+    min-height: 496px;
+  }
+
+  .rules-card_big-image {
+    height: 55%;
+  }
+
+  .base-section {
+    padding: 30px 0px;
+  }
+
+  .winners-card {
+    padding: 24px;
+  }
+
+  .winners-card__items-head {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: 12px;
+  }
+
+  .winners-card__items > li span {
+    width: 32px;
+    height: 32px;
+    font-size: 18px;
+  }
+
+  .winners-card__items > li p {
+    font-size: 18px;
+  }
+
+  .winners-card__items {
+    gap: 32px;
+  }
+
+  .winners-card__items-children li {
+    font-size: 14px;
+  }
+
+  .winners-card__contacts span {
+    font-size: 14px;
+  }
+
+  .winners-card__contacts-tags {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    width: 100%;
+    gap: 8px;
+  }
+  .winners-card__contacts-tags .base-tag {
+    font-size: 14px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+  }
+
+  .winners .base-divider {
+    margin: 32px 0px;
+  }
+
+  .gallery-slide {
+    height: 224px;
+  }
+
+  .jury-card {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+
+  .jury-card__image {
+    width: 100% !important;
+  }
+
+  .jury-card__info {
+    width: 100%;
+  }
+
+  .jury-card__info h4 {
+    font-size: 24px;
+  }
+
+  .bonus-card {
+    padding: 24px;
+  }
+
+  .bonus-card__head {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+
+  .bonus-card__head p {
+    font-size: 18px !important;
+  }
+
+  .bonus-card p {
+    font-size: 14px;
+  }
+
+  .faq .accordion-header button {
+    font-size: 16px;
+  }
+
+  .faq .accordion-body {
+    font-size: 14px;
+  }
+
+  .faq .accordion-item {
+    padding: 24px;
+  }
+
+  .faq {
+    padding-bottom: 80px;
+  }
+
+  .application-image {
+    height: 197px;
+  }
+
+  .application-info h3 {
+    font-size: 24px;
+    margin-bottom: 12px;
+  }
+
+  .application-info p {
+    font-size: 14px;
+  }
+
+  .application-info p {
+    margin-bottom: 24px;
+  }
+
+  .footer {
+    margin-top: 60px;
+  }
+
+  .footer h2 {
+    font-size: 42px;
+    line-height: 50px;
+    margin-bottom: 12px;
+  }
+
+  .footer p {
+    font-size: 14px;
+    margin-bottom: 24px;
+  }
+
+  .footer-contact p {
+    margin-bottom: 0px;
+  }
+
+  .footer-contact a {
+    font-size: 24px;
+  }
+
+  .footer-links {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: 12px;
+  }
+
+  .gallery-slider {
+    margin: 0;
+  }
+
+  .gallery-slide {
+    margin: 0px 5px !important;
+  }
+
+  body {
+    padding-top: 0px !important;
+  }
+
+  .header {
+    position: relative;
+  }
 }

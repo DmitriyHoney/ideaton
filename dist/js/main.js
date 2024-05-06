@@ -19,6 +19,32 @@ $(document).ready(() => {
     dots: false,
     arrows: false,
     slidesToShow: 3,
-    infinite: false,
+    infinite: true,
+    responsive: [
+      {
+        breakpoint: 1919,
+        settings: {
+          centerMode: true,
+          centerPadding: '380px',
+          slidesToShow: 1,
+        }
+      },
+      {
+        breakpoint: 1919,
+        settings: {
+          centerMode: true,
+          centerPadding: '80px',
+          slidesToShow: 1,
+        }
+      },
+      {
+        breakpoint: 719,
+        settings: {
+          centerMode: true,
+          centerPadding: '50px',
+          slidesToShow: 1,
+        }
+      },
+    ]
   });
 });

@@ -1,0 +1,365 @@
+// 1366px - 1920px
+@media screen and (max-width: 190000px) {
+    .jury-card__image {
+        width: 50% !important;
+    }
+}
+// 1366px - 1920px
+@media screen and (max-width: 1919px) {
+    .offer {
+        overflow: hidden;
+    }
+    .offer-title {
+        font-size: 120px;
+        line-height: 95px;
+    }
+    .offer-subtitle {
+        margin-bottom: 120px;
+    }
+    .usefull-image {
+        max-width: 580px;
+    }
+    .winners-card__items-children li {
+        width: 100%;
+    }
+    .winners-card__contacts {
+        padding: 42px 82px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 24px;
+        & span {
+            width: 100%;
+        }
+    }
+    .jury-card {
+        min-height: 452px;
+    }
+    .jury-card__image {
+        height: auto;
+        width: auto;
+    }
+    .application-info p {
+        // margin-bottom: 123px;
+        font-size: 18px;
+    }
+    .application-info h3 {
+        font-size: 52px;
+    }
+}
+
+// 720px - 1366px
+@media screen and (max-width: 1365px) {
+    .offer-button {
+        display: none;
+    }
+    .usefull {
+        padding-top: 50px;
+        padding-bottom: 60px;
+    }
+    .offer {
+        padding-bottom: 50px;
+        padding-top: 80px;
+    }
+    .offer-subtitle {
+        margin-bottom: 60px;
+    }
+    .base-tag {
+        font-size: 28px;
+    }
+    .rules-card_big {
+        min-height: 813px;
+    }
+    .base-section__title {
+        font-size: 68px;
+    }
+    .base-section {
+        padding: 50px 0px;
+    }
+    .base-section__title {
+        margin-bottom: 60px;
+    }
+    .winners-card__contacts {
+        padding: 0;
+        background: transparent;
+        border: none;
+        & .base-tag {
+            font-size: 24px;
+        }
+    }
+    .winners-card__contacts span {
+        font-size: 24px;
+    }
+    .jury-card {
+        min-height: 193px;
+    }
+    .jury-card__image {
+        width: 250px;
+    }
+    .jury-card__info h4 {
+        font-size: 18px;
+    }
+    .jury-card__info p {
+        font-size: 18px;
+    }
+    .application .row .col-md-6:last-child {
+        order: -1;
+        margin-bottom: 32px;
+    }
+    .application-info p {
+        margin-bottom: 60px;
+    }
+    .footer {
+        margin-top: 100px;
+        & .base-logotype {
+            margin-top: 40px;
+        }
+    }
+    .footer-info {
+        margin-top: 32px;
+    }
+    .faq .accordion-header button {
+        font-size: 24px;
+    }
+    .faq .accordion-body {
+        font-size: 18px;
+    }
+    .faq .accordion-body {
+        margin-top: 24px;
+    }
+}
+
+// 320px - 720px
+@media screen and (max-width: 719px) {
+    .base-container {
+        padding: 0px 12px;
+    }
+    .header-wrap {
+        justify-content: center;
+    }
+    .header-wrap .base-button.base-button__outlined {
+        display: none;
+    }
+    .base-tag {
+        padding: 12px;
+        font-size: 14px;
+    }
+    .offer-title {
+        font-size: 52px;
+        line-height: 45px;
+        margin-bottom: 12px;
+        margin-top: 24px;
+    }
+    .offer-info__tags {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+    .offer-info__actions {
+        flex-direction: column;
+        gap: 32px;
+    }
+    .offer-btn_sm {
+        display: flex;
+        margin-bottom: 8px;
+      }
+      .offer-subtitle {
+        font-size: 14px;
+        margin-bottom: 24px;
+      }
+      .offer {
+        padding-top: 60px;
+        padding-bottom: 0px;
+      }
+      .usefull {
+        padding-top: 12px;
+      }
+      .usefull-card {
+        padding: 24px;
+      }
+      .usefull-card h3 {
+        font-size: 18px;
+      }
+      .usefull-card p {
+        font-size: 14px;
+      }
+      .usefull-card {
+        gap: 12px;
+      }
+      .usefull-wrap {
+        margin-top: 32px;
+      }
+      .usefull-info h3 {
+        font-size: 32px;
+      }
+      .usefull-info ul li {
+        font-size: 14px;
+      }
+      .usefull-info p {
+        font-size: 14px;
+        margin: 32px 0px;
+      }
+      .base-section__title {
+        font-size: 32px;
+        margin-bottom: 32px;
+      }
+      .rules-card {
+        padding: 24px;
+        min-height: auto;
+      }
+      .rules-card__tags {
+        gap: 8px;
+        & .base-tag {
+            font-size: 13px;
+        }
+      }
+      .rules-card h3 {
+        font-size: 18px;
+      }
+      .rules-card p,
+      .rules-card a.rules-card__link {
+        font-size: 14px;
+      }
+      .rules-card:first-child {
+        margin-bottom: 21px;
+      }
+      .rules .col-xl-6:first-child {
+        margin-bottom: 21px;
+      }
+      .rules .col-xl-6:last-child {
+        margin-top: 0;
+      }
+      .rules-card_big {
+        min-height: 496px;
+      }
+      .rules-card_big-image {
+        height: 55%;
+      }
+      .base-section {
+        padding: 30px 0px;
+      }
+      .winners-card {
+        padding: 24px;
+      }
+      .winners-card__items-head {
+        flex-direction: column;
+        gap: 12px;
+      }
+      .winners-card__items > li span {
+        width: 32px;
+        height: 32px;
+        font-size: 18px;
+      }
+      .winners-card__items > li p {
+        font-size: 18px;
+      }
+      .winners-card__items {
+        gap: 32px;
+      }
+      .winners-card__items-children li {
+        font-size: 14px;
+      }
+      .winners-card__contacts span {
+        font-size: 14px;
+      }
+      .winners-card__contacts-tags {
+        flex-direction: column;
+        width: 100%;
+        gap: 8px;
+        & .base-tag {
+            font-size: 14px;
+            display: flex;
+            width: 100%;
+        }
+      }
+      .winners .base-divider {
+        margin: 32px 0px;
+      }
+      .gallery-slide {
+        height: 224px;
+      }
+      .jury-card {
+        flex-direction: column;
+      }
+      .jury-card__image {
+        width: 100% !important;
+      }
+      .jury-card__info {
+        width: 100%;
+      }
+      .jury-card__info h4 {
+        font-size: 24px;
+      }
+      .bonus-card {
+        padding: 24px;
+      }
+      .bonus-card__head {
+        flex-direction: column;
+      }
+      .bonus-card__head p {
+        font-size: 18px !important;
+      }
+      .bonus-card p {
+        font-size: 14px;
+      }
+      .faq .accordion-header button {
+        font-size: 16px;
+    }
+    .faq .accordion-body {
+        font-size: 14px;
+    }
+    .faq .accordion-item {
+        padding: 24px;
+    }
+    .faq {
+        padding-bottom: 80px;
+    }
+    .application-image {
+        height: 197px;
+    }
+    .application-info h3 {
+        font-size: 24px;
+        margin-bottom: 12px;
+    }
+    .application-info p {
+        font-size: 14px;
+    }
+    .application-info p {
+        margin-bottom: 24px;
+    }
+    .footer {
+        margin-top: 60px;
+    }
+    .footer h2 {
+        font-size: 42px;
+        line-height: 50px;
+        margin-bottom: 12px;
+    }
+    .footer p {
+        font-size: 14px;
+        margin-bottom: 24px;
+    }
+    .footer-contact p {
+        margin-bottom: 0px;
+    }
+    .footer-contact a {
+        font-size: 24px;
+    }
+    .footer-links {
+        flex-direction: column;
+        gap: 12px;
+    }
+    .gallery-slider {
+        margin: 0;
+    }
+    .gallery-slide {
+        margin: 0px 5px !important;
+    }
+    body {
+        padding-top: 0px !important;
+    }
+    .header {
+        position: relative;
+    }
+}
+
+// < 320px
+@media screen and (max-width: 319px) {} 
